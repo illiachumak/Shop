@@ -1,0 +1,35 @@
+
+.nav-container{
+    
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.sorting-first{
+    display: flex;
+    gap: 15px;
+}
+
+.sorting-first div{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    height: 42px;
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+    
+   
+}
+    .black-bg{
+        background-color: #181818;
+        color: white;
+    }
+    .white-bg{
+        background-color: #e8e8e8;
+        color: rgb(0, 0, 0);
+    }

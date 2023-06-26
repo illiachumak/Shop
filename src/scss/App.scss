@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Proxima Nova', sans-serif; 
+    
+}
+.background{
+    background-color: #eac479;
+    height: 100%;
+    padding: 2%;
+}
+
+.container{
+    max-width: 1340px;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px 60px;
+    
+   
+    h1{
+        display: block;
+        margin-bottom: 40px;
+    }
+}
+
+
+.pizza-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 70px;
+    column-gap: 1%;
+}
+
