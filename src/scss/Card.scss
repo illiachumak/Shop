@@ -1,3 +1,9 @@
+.card-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .card-container{
     width: 280px;
     
@@ -115,4 +121,25 @@
         transition: all ease-in-out 0.3s;
     }
 
+}
+
+@media (max-width: 750px) {
+    
+    .card-container{
+        width: 350px;
+    }
+}
+
+@media (max-width: 475px) {
+    
+    .card-container{
+        width: 250px;
+    }
+}
+
+@media (max-width: 375px) {
+    
+    .card-container{
+        width: 200px;
+    }
 }

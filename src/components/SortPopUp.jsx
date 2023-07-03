@@ -39,8 +39,9 @@ const SortPopUp = () => {
           ))}
         </ul>
       </div>
+      <div className='sort-second-wrap'>
       <span onClick={popupOnClick}>{sortList[selected]}</span>
-    </>
+    </div></>
   );
 };
 

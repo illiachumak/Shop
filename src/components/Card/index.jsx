@@ -1,6 +1,6 @@
-import '../scss/Card.scss'
-import addBtn from '../assets/add-btn.png'
-import pizzaImg from '../assets/pizza_1.png'
+import '../../scss/Card.scss'
+import addBtn from '../../assets/add-btn.png'
+import pizzaImg from '../../assets/pizza_1.png'
 import React, {useState} from 'react'
 
 const Card = (props) => {
@@ -14,6 +14,7 @@ const radioBtn1Func = () => {
 
 
     return(
+        <div className='card-wrap'>
         <div className="card-container">
           <img className='card-img' src={pizzaImg} alt=''></img>
           <span className='pizza-name'>{props.text}</span>
@@ -46,6 +47,7 @@ const radioBtn1Func = () => {
                 <span>Add</span>
             </div>
           </div>
+        </div>
         </div>
     );
 }
