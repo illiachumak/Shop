@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 function Cart() {
   const { cartList } = useSelector((state) => state.productList);
-  console.log(cartList);
+  
 
   return (
     <div className="wrapper">
