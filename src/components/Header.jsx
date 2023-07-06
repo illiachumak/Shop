@@ -3,11 +3,12 @@ import '../scss/Header.scss';
 import logoImg from '../assets/logo.png'
 import cartImg from '../assets/cart.svg'
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
 
-
-
+    const {totalPrice, cartList} = useSelector(state => state.productList)
+    console.log(totalPrice)
 
     return(
         <div className="header-container">
@@ -15,16 +16,16 @@ const Header = () => {
                 <Link to='/'>
                 <img className="logo" alt='logo img' src={logoImg}></img></Link>
                 <div className="logo-text-container">
-                <Link to='/'><span>REACT PIZZA</span></Link>
-                    <span className='pizza-text'>The best pizza you will ever have</span>
+                <Link to='/'><span>REACT SHOP</span></Link>
+                    <span className='pizza-text'>The best products are here</span>
                 </div>
             </div>
 
             <Link to='/cart' className="cart">
-                <div className="cart-price">555$</div>
+                <div className="cart-price">{totalPrice}$</div>
                 <div className="cart-btn">
                     <img className='cart-img' src={cartImg} alt='cart'></img>
-                    <div>{"3"}</div>
+                    <div>{cartList.length}</div>
                 </div>
             </Link>
         </div>

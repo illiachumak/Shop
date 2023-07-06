@@ -1,4 +1,4 @@
-import '../../scss/Cart.scss'
+import '../scss/Cart.scss'
 import {Link} from 'react-router-dom'
 function NotFound() {
 

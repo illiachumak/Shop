@@ -1,13 +1,17 @@
 import '../scss/SortPopUp.scss';
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSortType } from '../redux/slices/filterSlice';
 
 const SortPopUp = () => {
   const sortList = ["popular", 'price', 'price'];
-  const [selected, setSelected] = useState(0);
   const [popup, setPopup] = useState(false);
+  
+  const selected = useSelector(state => state.filter.sort.name);
+  const dispatch = useDispatch();
 
   const onClickSelectSort = (i) => {
-    setSelected(i);
+    dispatch(setSortType(i));
     setPopup(!popup);
   };
 

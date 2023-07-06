@@ -1,26 +1,34 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId } from '../redux/slices/filterSlice';
+import SortPopUp from './SortPopUp';
 import '../scss/Navbar.scss';
-import React, {useState} from 'react'
-import SortPopUp from './SortPopUp'
 
 const Navbar = () => {
+  const navBtn = useSelector(state => state.filter.categoryId);
+  const dispatch = useDispatch();
 
-    const [navBtn, setNavBtn] = useState(1);
+  const onClickCategory = (i) => {
+    dispatch(setCategoryId(i));
+    console.log(i);
+    
+  };
 
+  return (
+    <div className="nav-container">
+      <div className="sorting-first">
+        <div className={navBtn === 0 ? 'black-bg' : 'white-bg'} onClick={() => onClickCategory(0)}>All</div>
+        <div className={navBtn === 1 ? 'black-bg' : 'white-bg'} onClick={() => onClickCategory(1)}>id1</div>
+        <div className={navBtn === 2 ? 'black-bg' : 'white-bg'} onClick={() => onClickCategory(2)}>id2</div>
+        <div className={navBtn === 3 ? 'black-bg' : 'white-bg'} onClick={() => onClickCategory(3)}>id3</div>
+        <div className={navBtn === 4 ? 'black-bg' : 'white-bg'} onClick={() => onClickCategory(4)}>id4</div>
+      </div>
 
-    return(
-        <div className="nav-container">
-           <div className="sorting-first">
-                <div className={navBtn === 1 ? "black-bg" : "white-bg"} onClick={() =>setNavBtn(1)}>All</div>
-                <div className={navBtn === 2 ? "black-bg" : "white-bg"} onClick={() =>setNavBtn(2)}>Meat</div>
-                <div className={navBtn === 3 ? "black-bg" : "white-bg"} onClick={() =>setNavBtn(3)}>Vegeterian</div>
-                <div className={navBtn === 4 ? "black-bg" : "white-bg"} onClick={() =>setNavBtn(4)}>Spicy</div>
-           </div>
-
-           <div className="sorting-second">
-                Sort by: <SortPopUp/>
-           </div>
-        </div>
-    );
-}
+      <div className="sorting-second">
+        Sort by: <SortPopUp/>
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;

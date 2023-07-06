@@ -1,9 +1,9 @@
 import '../scss/App.scss';
 import Header from './Header';
 import {Routes, Route} from 'react-router-dom';
-import Home from './Pages/Home'
-import Cart from './Pages/Cart';
-import NotFound from './Pages/Nf';
+import Home from '../Pages/Home'
+import Cart from '../Pages/Cart';
+import NotFound from '../Pages/Nf';
 
 function App() {
   
