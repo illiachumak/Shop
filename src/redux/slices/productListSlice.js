@@ -27,11 +27,15 @@ export const productListSlice = createSlice({
         state.totalPrice -= removedItem.totalPrice;
       }
     },
+    clearCartProducts(state) {
+      state.cartList = [];
+    },
+
   },
 });
 
 
 
-export const { setProducts, setCartProducts, removeCartProduct} = productListSlice.actions;
+export const { setProducts, setCartProducts, removeCartProduct, clearCartProducts} = productListSlice.actions;
 
 export default productListSlice.reducer;

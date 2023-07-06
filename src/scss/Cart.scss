@@ -40,4 +40,17 @@
    cursor: pointer;
  }
 
- 
+.checkout{
+   display:flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 15px;
+   .checkout-btn{
+      background: #EB5A1E;
+      padding: 10px 20px;
+      color: white;
+      font-weight: 700;
+      border-radius: 15px;
+      cursor: pointer;
+   }
+}

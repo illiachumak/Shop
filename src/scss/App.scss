@@ -36,6 +36,16 @@
     grid-row-gap: 30px;
 }
 
+.addProduct-btn{
+    background-color: #EB5A1E;
+    border-radius: 15px;
+    width: max-content;
+    padding: 10px 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+}
+
 @media (max-width: 1350px) {
     .pizza-container{
         grid-template-columns: repeat(3, 1fr);
