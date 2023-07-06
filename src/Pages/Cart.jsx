@@ -1,7 +1,18 @@
 import '../scss/Cart.scss';
-import { useSelector } from 'react-redux';
+import xImg from '../assets/x.svg'
+import { useSelector, useDispatch} from 'react-redux';
+import { removeCartProduct } from '../redux/slices/productListSlice';
+
 
 function Cart() {
+  
+  const dispatch = useDispatch();
+
+  const onClickRemove = (i) => {
+    dispatch(removeCartProduct(i));
+    
+    
+  };
   const { cartList } = useSelector((state) => state.productList);
   
 
@@ -28,7 +39,7 @@ function Cart() {
             <div className='item-right'>
             <span>{item.quanity}х</span>
             <span>{item.totalPrice}</span>
-
+            <img alt='' src={xImg} className='close-btn' onClick={() => onClickRemove(item.name)}></img>
             </div>
           </div>
           
