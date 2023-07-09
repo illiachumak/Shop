@@ -13,7 +13,7 @@ const ModalViewEdit = (props) => {
 
   const [formData, setFormData] = useState({
     uniqueId: props.uniqueId,
-    id: ['0','1'],
+    id: [0,1],
     img: '',
     name: '',
     taste: ['firstTaste','secondTaste'],

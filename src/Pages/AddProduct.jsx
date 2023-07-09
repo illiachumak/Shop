@@ -44,7 +44,7 @@ function AddProduct() {
     }
 
     axios
-      .post('http://localhost:3001/postproduct', formData)
+      .post('http://localhost:3001/product', formData)
       .then((response) => {
         if(response.data === 'succes'){
             alert('Product added to the list')

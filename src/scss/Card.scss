@@ -42,7 +42,7 @@
     display: flex;
     align-items: center;
     padding: 7px 25px;
-    border: 1px solid #EB5A1E;
+    border: 1px solid rgb(235, 90, 30);
     color:#EB5A1E;
     border-radius: 30px;
     cursor: pointer;
@@ -56,11 +56,7 @@
     }
 }
 
-.add-btn:hover{
-    border: 1px solid #ffffff;
-    background-color: #ffe5c0;
-    transition: all ease-in-out 0.3s;
-}
+
 .card-details{
     width: 100%;
     background-color: #f3f3f3;
@@ -94,6 +90,32 @@
         background-color: #fff;
         transition: all ease-in-out 0.3s;
     }
+}
+
+.card-buttons{
+    div{
+        height: 25px;
+    }
+    img{
+        height: 25px;
+        width: 25px;
+        &:hover{
+            border-radius: 50%;
+            padding: 6px;
+            background-color: #f3cab4;
+            transition: all ease-in-out 0.3s;
+        }
+    }
+
+    
+}
+.btn-edit{
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+    }
+.btn-delete{
+    margin-right: 5px;
 }
 .card-details-second{
     display: flex;

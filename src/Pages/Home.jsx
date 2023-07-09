@@ -12,27 +12,28 @@ import { setProducts } from '../redux/slices/productListSlice';
 
 function Home() {
   const dispatch = useDispatch();
-  const edited = useSelector((state) => (state.productList.editingProduct));
+  const {editingProduct:edited, deletion:deleted} = useSelector((state) => (state.productList));
 
   const { categoryId, sort } = useSelector((state) => state.filter);
   const sortType = sort.sortType;
 
-  const [pizzaArr, setPizzaArr] = useState([]);
+  const [shopArr, setShopArr] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     setIsLoaded(false);
     axios
-      .get(`http://localhost:3001/pizzas?category=${categoryId}&sort=${sortType}`)
+      .get(`http://localhost:3001/product?category=${categoryId}&sort=${sortType}`)
       .then((response) => {
         dispatch(setProducts(response.data));
         console.log(response.data)
-        setPizzaArr(response.data);
+        setShopArr(response.data);
         setIsLoaded(true);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [categoryId, sortType, edited]);
+  }, [categoryId, sortType, edited, deleted]);
 
   
 
@@ -45,9 +46,9 @@ function Home() {
         
         
       </div>
-      <div className="pizza-container">
+      <div className="shop-container">
         {isLoaded ? (
-          pizzaArr.map((product, i) => (
+          shopArr.map((product, i) => (
             <Card key={i} index={i} img={product.img} text={product.name} price={product.price} uniqueId={product.uniqueId}/>
           ))
         ) : (
