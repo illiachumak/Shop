@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios'
 
 const initialState = {
   productList: [],
   cartList: [],
   totalPrice: 0,
+  editingProduct: null,
 };
 
 export const productListSlice = createSlice({
@@ -29,13 +31,21 @@ export const productListSlice = createSlice({
     },
     clearCartProducts(state) {
       state.cartList = [];
+      state.totalPrice = 0;
     },
 
+    editProduct(state, action) {
+      const updatedProduct = action.payload;
+        state.editingProduct = updatedProduct;
+        
+        axios.post('http://localhost:3001/changeList', updatedProduct).catch((e) => console.log(e))
+      
+    },
   },
 });
 
 
 
-export const { setProducts, setCartProducts, removeCartProduct, clearCartProducts} = productListSlice.actions;
+export const { setProducts, setCartProducts, removeCartProduct, clearCartProducts, editProduct, editingProduct} = productListSlice.actions;
 
 export default productListSlice.reducer;

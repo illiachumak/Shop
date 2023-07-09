@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function AddProduct() {
   const [formData, setFormData] = useState({
-    index: 0,
+    uniqueId: Math.random()*1000,
     id: [0, 1],
     img: '',
     name: '',
@@ -51,7 +51,6 @@ function AddProduct() {
         }
 
         setFormData({
-          index: 0,
           id: [0, 1],
           img: '',
           name: '',
@@ -67,10 +66,8 @@ function AddProduct() {
   };
 
   return (
+    <div className='wrapper-add'>
     <form onSubmit={handleSubmit}>
-      <label htmlFor="index">Index:</label>
-      <input type="number" id="index" name="index" value={formData.index} onChange={handleChange} />
-
       <label htmlFor="id">ID:</label>
       <input type="text" id="id" name="id" value={formData.id} onChange={handleChange} />
 
@@ -100,6 +97,7 @@ function AddProduct() {
 
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 }
 

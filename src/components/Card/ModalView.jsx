@@ -1,6 +1,5 @@
 import '../../scss/ModalView.scss'
-import addBtn from '../../assets/add-btn.png'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState,} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setCartProducts } from '../../redux/slices/productListSlice';
 

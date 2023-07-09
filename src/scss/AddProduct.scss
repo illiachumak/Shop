@@ -1,18 +1,17 @@
-/* Cart.scss */
+
 
 form {
     display: flex;
     flex-direction: column;
+    
   }
   
   label {
     margin-bottom: 0.5rem;
   }
   
-  input {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-  }
+  
+  
   
   button {
     padding: 0.5rem 1rem;
@@ -29,5 +28,4 @@ form {
   button:focus {
     outline: none;
   }
-  
   
