@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSortType } from '../redux/slices/filterSlice';
 
 const SortPopUp = () => {
-  const sortList = ["popular", 'price', 'price'];
+  const sortList = ["popular", 'price', 'alphabetical'];
   const [popup, setPopup] = useState(false);
   
   const selected = useSelector(state => state.filter.sort.name);
@@ -22,8 +22,6 @@ const SortPopUp = () => {
   const priceIcon = (i) => {
     if (i === 1) {
       return <span className="sort-icon up"></span>;
-    } else if (i === 2) {
-      return <span className="sort-icon down"></span>;
     }
   };
 
