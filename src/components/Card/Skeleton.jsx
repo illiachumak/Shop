@@ -1,22 +1,22 @@
-
+import React from "react"
 import ContentLoader from "react-content-loader"
 
 const Skeleton = (props) => (
   <ContentLoader 
     speed={1.5}
     width={280}
-    height={465}
-    viewBox="0 0 280 465"
+    height={300}
+    viewBox="0 0 280 300"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <circle cx="140" cy="125" r="125" /> 
-    <rect x="45" y="269" rx="6" ry="6" width="190" height="26" /> 
-    <rect x="3" y="311" rx="15" ry="15" width="274" height="86" /> 
-    <rect x="6" y="420" rx="8" ry="8" width="91" height="33" /> 
-    <rect x="172" y="413" rx="21" ry="21" width="97" height="45" />
+    <rect x="40" y="0" rx="26" ry="26" width="200" height="200" /> 
+    <rect x="20" y="220" rx="5" ry="5" width="240" height="24" /> 
+    <rect x="6" y="258" rx="13" ry="13" width="72" height="35" /> 
+    <rect x="160" y="253" rx="14" ry="14" width="111" height="41" />
   </ContentLoader>
 )
 
 export default Skeleton;
+

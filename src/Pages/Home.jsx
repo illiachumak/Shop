@@ -49,7 +49,7 @@ function Home() {
       <div className="shop-container">
         {isLoaded ? (
           shopArr.map((product, i) => (
-            <Card key={i} index={i} img={product.img} text={product.name} price={product.price} uniqueId={product.uniqueId}/>
+            <Card key={i} index={i} img={product.img} text={product.name} price={product.price} uniqueId={product.uniqueId} weight={product.weight} taste={product.taste}/>
           ))
         ) : (
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)

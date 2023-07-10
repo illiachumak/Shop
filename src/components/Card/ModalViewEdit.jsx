@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState,} from 'react';
+import { useDispatch } from 'react-redux';
 import { editProduct,} from '../../redux/slices/productListSlice';
 
 import '../../scss/ModalView.scss';
@@ -92,7 +92,8 @@ const ModalViewEdit = (props) => {
         <button type="submit">Submit</button>
         <button onClick={closePopup}>Close</button>
       </form>
-    </div>
+      </div>
+    
   );
 };
 
