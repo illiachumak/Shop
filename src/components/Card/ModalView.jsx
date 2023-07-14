@@ -23,7 +23,7 @@ const closePopup = () => {
     props.closeFunc()
 }
 
-const addPizzaFunction = () => {
+const addProductFunction = () => {
     
     if(inputValue === ''){
         alert("invalid inputs")
@@ -73,7 +73,7 @@ const addPizzaFunction = () => {
                 </div>
           <div className='card-buttons'>
           <div className='add-btn' onClick={closePopup}> <span>Close</span></div>
-            <div className='add-btn' onClick={addPizzaFunction}>
+            <div className='add-btn' onClick={addProductFunction}>
                 
                 <span>Add</span>
             </div>
