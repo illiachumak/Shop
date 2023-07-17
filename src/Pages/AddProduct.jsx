@@ -49,6 +49,7 @@ function AddProduct() {
             alert('Product added to the list')
         }
 
+
         setFormData({
           id: [0, 1],
           img: '',

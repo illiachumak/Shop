@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios'
 
 const initialState = {
@@ -7,7 +7,16 @@ const initialState = {
   totalPrice: 0,
   editingProduct: null,
   deletion: false,
+  isLoaded: false,
 };
+
+export const fetchItems = createAsyncThunk(
+  'items/fetchItems',
+  async (categoryId, sortType) => {
+    const {data} = await axios.get(`http://localhost:3001/product?category=${categoryId}&sort=${sortType}`)
+    return data
+  }
+)
 
 export const productListSlice = createSlice({
   name: 'productItems',
@@ -45,7 +54,18 @@ export const productListSlice = createSlice({
         axios.put('http://localhost:3001/product', updatedProduct).catch((e) => console.log(e))
       
     },
+
+    
   },
+  extraReducers: {
+    [fetchItems.pending] : (state) => {
+      state.isLoaded = false;
+    },
+    [fetchItems.fulfilled] : (state, action) => {
+      state.productList = action.payload;
+      state.isLoaded = true;
+    },
+  }
 });
 
 

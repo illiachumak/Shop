@@ -8,31 +8,17 @@ import Card from '../components/Card';
 import Skeleton from '../components/Card/Skeleton';
 
 
-import { setProducts } from '../redux/slices/productListSlice';
+import {fetchItems } from '../redux/slices/productListSlice';
 
 function Home() {
   const dispatch = useDispatch();
-  const {editingProduct:edited, deletion:deleted} = useSelector((state) => (state.productList));
+  const {editingProduct:edited, deletion:deleted, productList:shopArr, isLoaded } = useSelector((state) => (state.productList));
 
   const { categoryId, sort } = useSelector((state) => state.filter);
   const sortType = sort.sortType;
 
-  const [shopArr, setShopArr] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
-    setIsLoaded(false);
-    axios
-      .get(`http://localhost:3001/product?category=${categoryId}&sort=${sortType}`)
-      .then((response) => {
-        dispatch(setProducts(response.data));
-        console.log(response.data)
-        setShopArr(response.data);
-        setIsLoaded(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    dispatch(fetchItems(categoryId, sort))
   }, [categoryId, sortType, edited, deleted]);
 
   
