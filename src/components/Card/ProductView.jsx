@@ -40,9 +40,9 @@ const ProductView = (props) => {
   };
 
   return (
-    <div className="card-modal-view">
+    <div className="card-modal-view" onClick={closePopup}>
       {editOpen && <ModalViewEdit index={props.index} uniqueId={props.uniqueId} closeFunc={closeFunc} />}
-      <div className="popup">
+      <div className="popup" onClick={e => e.stopPropagation()}>
         <span className="close-btn" onClick={closePopup}>
           &times;
         </span>

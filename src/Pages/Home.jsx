@@ -26,7 +26,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Link to='/addProduct'><div className='addProduct-btn'>Add Product</div></Link>
+      <div className='addProduct-btn'><Link to='/addProduct'>Add Product</Link></div>
       <h1>All Products</h1>
       <div className="add-product-popup">
         

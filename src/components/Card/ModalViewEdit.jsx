@@ -60,8 +60,8 @@ const ModalViewEdit = (props) => {
   };
 
   return (
-    <div className="card-modal-view">
-      <form onSubmit={handleSubmit}>
+    <div className="card-modal-view" onClick={closePopup}>
+      <form onSubmit={handleSubmit} onClick={e => e.stopPropagation()}>
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" value={formData.id} onChange={handleChange} />
 

@@ -1,11 +1,24 @@
 import '../scss/SortPopUp.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType } from '../redux/slices/filterSlice';
 
 const SortPopUp = () => {
   const sortList = ["popular", 'price', 'alphabetical'];
   const [popup, setPopup] = useState(false);
+
+  const popupRef = useRef(null)
+  useEffect( () => {
+    const handleClickOutside = (e) => {
+      if (!popupRef.current.contains(e.target)){
+        setPopup(false);
+      }
+    }
+    document.body.addEventListener('click', handleClickOutside)
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
   
   const selected = useSelector(state => state.filter.sort.name);
   const dispatch = useDispatch();
@@ -26,8 +39,8 @@ const SortPopUp = () => {
   };
 
   return (
-    <>
-      <div className={`sort-popup ${popup ? 'opened' : 'closed'}`}>
+    <div className='sort-second-wrap' ref={popupRef} >
+      <div className={`sort-popup ${popup ? 'opened' : 'closed'}`} >
         <ul>
           {sortList.map((sortItem, i) => (
             <li
@@ -43,7 +56,7 @@ const SortPopUp = () => {
       </div>
       <div className='sort-second-wrap'>
       <span onClick={popupOnClick}>{sortList[selected]}</span>
-    </div></>
+    </div></div>
   );
 };
 
